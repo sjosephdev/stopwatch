@@ -1,4 +1,4 @@
-# calculator
+# stopwatch
 
 Simple JavaScript Stopwatch
 
