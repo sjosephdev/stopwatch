@@ -150,8 +150,8 @@ header {
 
   .stopWatchSection {
     margin-bottom: 1rem;
-    transform: scale(0.9);
-    -webkit-transform: scale(0.9);
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
   }
 
   .spaceLeft,
