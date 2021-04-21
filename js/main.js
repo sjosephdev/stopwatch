@@ -27,11 +27,11 @@ const stopwatch = {
     let diffInMs = (diffInSec - ss) * 100;
     let ms = Math.floor(diffInMs);
 
-    hh = hh.toString().padStart(2, "0");
     mm = mm.toString().padStart(2, "0");
     ss = ss.toString().padStart(2, "0");
+    ms = ms.toString().padStart(2, "0");
 
-    return `${hh}:${mm}:${ss}`;
+    return `${mm}:${ss}:${ms}`;
   },
 
   print: function(text) {
