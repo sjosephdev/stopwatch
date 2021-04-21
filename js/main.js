@@ -13,6 +13,7 @@ const stopwatch = {
   startTime: 0,
   elapsedTime: 0,
   timeInterval: 0,
+  isRunning: false,
 
   timeToString: function(time) {
     let diffInHrs = time / 3600000;
@@ -44,16 +45,22 @@ const stopwatch = {
 
   start: function() {
     event.target.classList.add('clicking');
-    stopwatch.startTime = Date.now() - stopwatch.elapsedTime;
-    stopwatch.timerInterval = setInterval(function printTime() {
-      stopwatch.elapsedTime = Date.now() - stopwatch.startTime;
-      stopwatch.print(stopwatch.timeToString(stopwatch.elapsedTime));
-    }, 10);
+    if (stopwatch.isRunning) {
+
+    } else {
+      stopwatch.startTime = Date.now() - stopwatch.elapsedTime;
+      stopwatch.timerInterval = setInterval(function printTime() {
+        stopwatch.elapsedTime = Date.now() - stopwatch.startTime;
+        stopwatch.print(stopwatch.timeToString(stopwatch.elapsedTime));
+      }, 10);
+      stopwatch.isRunning = true;
+    }
   },
 
   stop: function() {
     event.target.classList.add('clicking');
     clearInterval(stopwatch.timerInterval);
+    stopwatch.isRunning = false;
   },
 
   reset: function() {
@@ -61,6 +68,7 @@ const stopwatch = {
     clearInterval(stopwatch.timerInterval);
     stopwatch.print('00:00:00');
     stopwatch.elapsedTime = 0;
+    stowatch.isRunning = false;
   },
 
   stopTransition: function(e) {
